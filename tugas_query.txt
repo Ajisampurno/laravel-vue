@@ -1,0 +1,29 @@
+1.  SELECT * FROM obat;
+
+2.  SELECT * FROM pelanggan;
+
+3.  SELECT * FROM transaksi;
+
+4.  SELECT * FROM detail_transaksi;
+
+5.  SELECT id_detail_transaksi FROM `detail_transaksi`
+
+6.  SELECT id_transaksi FROM `detail_transaksi`
+
+7.  SELECT id_obat FROM `detail_transaksi`
+
+8.  SELECT transaksi.id_transaksi, pelanggan.nama_pelanggan, obat.nama_obat, detail_transaksi.jumlah_pembelian
+    FROM transaksi, pelanggan, detail_transaksi, obat
+    WHERE transaksi.id_pelanggan = pelanggan.id_pelanggan
+
+9.  SELECT transaksi.id_transaksi, pelanggan.nama_pelanggan, obat.nama_obat, detail_transaksi.jumlah_pembelian
+    FROM transaksi, pelanggan, detail_transaksi, obat
+    WHERE transaksi.id_pelanggan = pelanggan.id_pelanggan
+    AND transaksi.id_transaksi = detail_transaksi.id_transaksi
+    AND detail_transaksi.id_obat = obat.id_obat;
+
+10.  SELECT transaksi.id_transaksi, SUM(obat.harga_obat * detail_transaksi.jumlah_pembelian) AS total_harga
+    FROM transaksi, detail_transaksi, obat
+    WHERE transaksi.id_transaksi = detail_transaksi.id_transaksi
+    AND detail_transaksi.id_obat = obat.id_obat
+    GROUP BY transaksi.id_transaksi;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 27 Des 2023 pada 06.12
+-- Waktu pembuatan: 27 Des 2023 pada 10.27
 -- Versi server: 8.0.30
 -- Versi PHP: 7.4.33
 
@@ -39,8 +39,16 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_obat`, `jumlah_pembelian`) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 1);
+(1, 1, 2, 3),
+(2, 1, 4, 2),
+(3, 2, 1, 1),
+(4, 3, 3, 4),
+(5, 4, 5, 2),
+(6, 5, 6, 1),
+(7, 6, 8, 3),
+(8, 7, 9, 2),
+(9, 8, 7, 1),
+(10, 9, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -59,8 +67,16 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id_obat`, `nama_obat`, `harga_obat`) VALUES
-(1, 'boderex', 10000.00),
-(2, 'paramex', 12000.00);
+(1, 'Paracetamol', 5.50),
+(2, 'Amoxicillin', 8.75),
+(3, 'Loratadine', 3.20),
+(4, 'Ibuprofen', 6.80),
+(5, 'Cetirizine', 4.50),
+(6, 'Omeprazole', 10.25),
+(7, 'Aspirin', 4.00),
+(8, 'Simvastatin', 12.50),
+(9, 'Metformin', 9.30),
+(10, 'Losartan', 7.75);
 
 -- --------------------------------------------------------
 
@@ -79,8 +95,16 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`) VALUES
-(1, 'aji', 'magelang'),
-(2, 'yanti', 'gresik');
+(1, 'John Doe', 'Jl. Merdeka No. 123'),
+(2, 'Jane Smith', 'Jl. Cendana No. 45'),
+(3, 'Robert Johnson', 'Jl. Pahlawan No. 67'),
+(4, 'Susan Williams', 'Jl. Harapan No. 89'),
+(5, 'Michael Davis', 'Jl. Damai No. 101'),
+(6, 'Emily Brown', 'Jl. Sejahtera No. 111'),
+(7, 'Daniel Taylor', 'Jl. Makmur No. 121'),
+(8, 'Jessica Lee', 'Jl. Jaya No. 131'),
+(9, 'Brian Miller', 'Jl. Bersama No. 143'),
+(10, 'Megan Wilson', 'Jl. Indah No. 155');
 
 -- --------------------------------------------------------
 
@@ -99,8 +123,16 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tanggal_transaksi`) VALUES
-(1, 1, '2023-12-27'),
-(2, 1, '2023-12-27');
+(1, 3, '2023-01-01'),
+(2, 1, '2023-01-02'),
+(3, 5, '2023-01-03'),
+(4, 2, '2023-01-04'),
+(5, 4, '2023-01-05'),
+(6, 7, '2023-01-06'),
+(7, 9, '2023-01-07'),
+(8, 6, '2023-01-08'),
+(9, 8, '2023-01-09'),
+(10, 10, '2023-01-10');
 
 --
 -- Indexes for dumped tables
@@ -141,7 +173,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detail_transaksi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
